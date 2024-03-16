@@ -95,6 +95,7 @@ This is an interactive help based on standard pydoc help.
 Type 'index'  to see GPI help index.
 Type 'python' to see standard python help screen.
 Type 'interactive' to get online interactive help from an expert.
+Type 'LLM_Code' to use a large language model to create and run code.        
 Type 'quit'   to return to GangaCore.
 ************************************
 """ % (_prog.hello_string))
@@ -114,6 +115,13 @@ Type 'quit'   to return to GangaCore.
                 self.output.write("""
 This is an interactive help. At the prompt type your questions in plain english\n\n""")
                 eliza.command_interface()
+                return
+            
+            if request == 'LLM_Code':
+                from . import LLM_Code
+                self.output.write("""
+This is a conversation with an LLM. At the prompt type your questions in plain english\n\n""")
+                LLM_Code.command_interface()
                 return
 
             # eval the expression (in the context of GangaCore.GPI namespace)

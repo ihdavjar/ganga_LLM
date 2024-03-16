@@ -87,6 +87,7 @@ install_requires = [
     "docker",
     "pymongo",
     "gdown",
+    "google-generativeai",
 ]
 if sys.platform != 'darwin':
     install_requires.append("htcondor")
